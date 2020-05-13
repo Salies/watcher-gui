@@ -1,6 +1,7 @@
 body{
     background-color:#930913;
     margin:0;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #wrapper{
@@ -43,21 +44,32 @@ body{
 }
 
 .chart{
+    position: relative;
     width:100px;
     height:100px;
     display: block;
     float:left;
     border-radius: 50%;
     border: 15px solid transparent;
-    background: linear-gradient(#ccc,#ccc) padding-box,
-                linear-gradient(35deg, blue 50%,transparent 0) border-box,
-                linear-gradient(to right, #f2f2f2 50%,blue 0) border-box;
+    background: linear-gradient(#930913,#930913) padding-box,
+                linear-gradient(35deg, #1a1a1a 50%,transparent 0) border-box,
+                linear-gradient(to right, rgba(26,26,26, .4) 50%,#1a1a1a 0) border-box;
+}
+
+.chart span{
+    display: block;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    font-size:24px;
+    color:#fff;
 }
 
 .bar{
     width:100%;
     height:25px;
-    background:black;
+    background:#1a1a1a;
 }
 
 .bar:first-of-type{
@@ -66,6 +78,6 @@ body{
 
 .bar > div{
     height:25px;
-    background:orangered;
+    background: linear-gradient(to right, #f85032, #e73827);
     width:75%;
 }
