@@ -1,0 +1,71 @@
+body{
+    background-color:#930913;
+    margin:0;
+}
+
+#wrapper{
+    display: flex;
+    position: absolute;
+    width: calc(100% - 25px);
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 25px;
+    height:440px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.character{
+    display:block;
+    height:440px;
+}
+
+.monitor{
+    padding-right: 25px;
+    line-height:25px;
+}
+
+.monitor > div{
+    width:100%;
+    height:auto;
+    overflow: auto;
+    margin-bottom:25px;
+}
+
+.monitor > div:last-of-type{
+    color:#fff;
+    margin-top:-15px;
+    margin-bottom:0;
+}
+
+.monitor > div > .chart:first-of-type{
+    margin-right:25px;
+}
+
+.chart{
+    width:100px;
+    height:100px;
+    display: block;
+    float:left;
+    border-radius: 50%;
+    border: 15px solid transparent;
+    background: linear-gradient(#ccc,#ccc) padding-box,
+                linear-gradient(35deg, blue 50%,transparent 0) border-box,
+                linear-gradient(to right, #f2f2f2 50%,blue 0) border-box;
+}
+
+.bar{
+    width:100%;
+    height:25px;
+    background:black;
+}
+
+.bar:first-of-type{
+    margin-bottom:15px;
+}
+
+.bar > div{
+    height:25px;
+    background:orangered;
+    width:75%;
+}

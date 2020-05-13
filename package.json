@@ -1,0 +1,29 @@
+{
+  "name": "watcher-gui",
+  "version": "1.0.0",
+  "description": "An Electron front-end for my resource monitor.",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Salies/watcher-gui.git"
+  },
+  "keywords": [
+    "resource",
+    "resource-monitor",
+    "electron"
+  ],
+  "author": "Daniel Serezane",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Salies/watcher-gui/issues"
+  },
+  "homepage": "https://github.com/Salies/watcher-gui#readme",
+  "dependencies": {
+    "electron": "^8.2.5",
+    "node-fetch": "^2.6.0"
+  }
+}
