@@ -2,9 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-        <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-        <link href="./resources/fonts/OpenSans-Regular.ttf" rel="stylesheet">
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+        <meta http-equiv="X-Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
         <link href="styles/main.css" rel="stylesheet">
         <title>Watcher</title>
     </head>
@@ -13,38 +12,41 @@
             <img src="./resources/img/rubyrose-bbtag-scythe.gif" class="character"/>
 
             <div class="monitor">
-                <div>
-                    <div class="chart">
-                        <span>90%</span>
+                <div class="charts">
+                    <div>
+                        <div class="chart">
+                            <span>{{ usage.cpu_usage }}%</span>
+                        </div>
+                        <div class="chart">
+                            <span>{{ usage.graphics_usage }}%</span>
+                        </div>
                     </div>
-                    <div class="chart">
-                        <span>90%</span>
-                    </div>
-                </div>
-                <div>
-                    <div class="chart">
-                        <span>90%</span>
-                    </div>
-                    <div class="chart">
-                        <span>90%</span>
+                    <div>
+                        <div class="chart">
+                            <span>{{ usage.ram_usage }}%</span>
+                        </div>
+                        <div class="chart">
+                            <span>{{ usage.vram_usage }}%</span>
+                        </div>
                     </div>
                 </div>
                 <div>
                     <div class="bar">
-                        <div></div>
+                        <div><span>{{ usage.cpu_temp }}°C</span></div>
                     </div>
                     <div class="bar">
-                        <div></div>
+                        <div><span>{{ usage.graphics_temp }}°C</span></div>
                     </div>
                 </div>
                 <div>
-                    CPU: Intel bla bla
+                    CPU: <span id="cpu_name"></span>
                     <br>
-                    GPU: Nvidia cra cra
+                    GPU: <span id="gpu_name"></span>
                 </div>
             </div>
         </div>
 
+        <script src="./resources/lib/vue.js"></script>
         <script src="./scripts/renderer.js"></script>
     </body>
 </html>

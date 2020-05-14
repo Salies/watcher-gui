@@ -26,7 +26,7 @@ body{
     line-height:25px;
 }
 
-.monitor > div{
+.monitor > div, .charts > div:first-of-type{
     width:100%;
     height:auto;
     overflow: auto;
@@ -37,9 +37,17 @@ body{
     color:#fff;
     margin-top:-15px;
     margin-bottom:0;
+    overflow:hidden;
+    font-size: 12px;
+    line-height: 14px;
 }
 
-.monitor > div > .chart:first-of-type{
+.charts{
+    min-width: 285px!important;
+    margin: 0 auto 25px auto;
+}
+
+.charts > div > .chart:first-of-type{
     margin-right:25px;
 }
 
@@ -80,4 +88,10 @@ body{
     height:25px;
     background: linear-gradient(to right, #f85032, #e73827);
     width:75%;
+}
+
+.bar > div > span{
+    color:#1a1a1a;
+    font-size:14px;
+    padding-left:5px;
 }
