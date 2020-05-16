@@ -14,28 +14,20 @@
             <div class="monitor">
                 <div class="charts">
                     <div>
-                        <div class="chart">
-                            <span>{{ usage.cpu_usage }}%</span>
-                        </div>
-                        <div class="chart">
-                            <span>{{ usage.graphics_usage }}%</span>
-                        </div>
+                        <div class="chart cpu_usage"></div>
+                        <div class="chart graphics_usage"></div>
                     </div>
                     <div>
-                        <div class="chart">
-                            <span>{{ usage.ram_usage }}%</span>
-                        </div>
-                        <div class="chart">
-                            <span>-1%</span>
-                        </div>
+                        <div class="chart ram_usage"></div>
+                        <div class="chart"></div>
                     </div>
                 </div>
                 <div>
-                    <div class="bar">
-                        <div><span>{{ usage.cpu_temp }}°C</span></div>
+                    <div class="bar cpu_temp">
+                        <div><span>-1 °C</span></div>
                     </div>
-                    <div class="bar">
-                        <div><span>{{ usage.graphics_temp }}°C</span></div>
+                    <div class="bar gpu_temp">
+                        <div><span>-1 °C</span></div>
                     </div>
                 </div>
                 <div>
@@ -46,7 +38,7 @@
             </div>
         </div>
 
-        <script src="./resources/lib/vue.js"></script>
+        <script src="./resources/lib/progressbar.min.js"></script>
         <script src="./scripts/renderer.js"></script>
     </body>
 </html>

@@ -2,24 +2,27 @@ const { ipcRenderer } = require("electron");
 
 console.log("renderer aqui")
 
-const app = new Vue({
-    el: '#wrapper',
-    data: {
-      usage: {
-          cpu_temp:"-1",
-          cpu_usage:"-1",
-          graphics_temp:"-1",
-          graphics_usage:"-1",
-          /*vram_usage:"-1",*/
-          ram_usage:"-1"
+let cpu_u, gpu_u, ram_u, vram_u, cpu_temp, gpu_temp;
+window.onload = function onLoad() {
+    let options = {
+        color: "#1a1a1a",
+        strokeWidth: 5,
+        text: {
+            autoStyleContainer: false
+        },
+        step: function(state, circle) {
+            let val = Math.round(circle.value() * 100);
+            circle.setText(val + "%");
         }
-    },
-    methods: {
-        updateData: function(data){
-            this.usage = data
-        }
-    }
-});
+    };
+
+    cpu_u = new ProgressBar.Circle('.cpu_usage', options);
+    gpu_u = new ProgressBar.Circle('.graphics_usage', options);
+    ram_u = new ProgressBar.Circle('.ram_usage', options);
+
+    cpu_temp = document.querySelector('.cpu_temp > div');
+    gpu_temp = document.querySelector('.gpu_temp > div');
+};
 
 console.log('començando o monitoramento')
 
@@ -35,9 +38,18 @@ ipcRenderer.on('data-response', (event, arg) => {
 
     console.log(arg)
 
-    app.updateData(arg);
+    cpu_u.animate(arg["cpu_usage"] / 100);
+    gpu_u.animate(arg["graphics_usage"] / 100);
+    ram_u.animate(arg["ram_usage"] / 100);
+
+    cpu_temp.style.width = arg["cpu_temp"] + "%";
+    cpu_temp.querySelector('span').innerText = arg["cpu_temp"] + "°C";
+
+    gpu_temp.style.width = arg["graphics_temp"] + "%";
+    gpu_temp.querySelector('span').innerText = arg["graphics_temp"] + "°C";
 
     setTimeout(function(){
+        console.log('esperando...')
         ipcRenderer.send('get-data');
-    }, 1000);
+    }, 2000);
 });
