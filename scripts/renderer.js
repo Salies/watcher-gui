@@ -19,6 +19,7 @@ window.onload = function onLoad() {
     cpu_u = new ProgressBar.Circle('.cpu_usage', options);
     gpu_u = new ProgressBar.Circle('.graphics_usage', options);
     ram_u = new ProgressBar.Circle('.ram_usage', options);
+    vram_u  = new ProgressBar.Circle('.vram_usage', options);
 
     cpu_temp = document.querySelector('.cpu_temp > div');
     gpu_temp = document.querySelector('.gpu_temp > div');
@@ -41,6 +42,7 @@ ipcRenderer.on('data-response', (event, arg) => {
     cpu_u.animate(arg["cpu_usage"] / 100);
     gpu_u.animate(arg["graphics_usage"] / 100);
     ram_u.animate(arg["ram_usage"] / 100);
+    vram_u.animate(arg["vram_usage"] / 100);
 
     cpu_temp.style.width = arg["cpu_temp"] + "%";
     cpu_temp.querySelector('span').innerText = arg["cpu_temp"] + "°C";
